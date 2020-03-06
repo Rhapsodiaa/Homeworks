@@ -72,6 +72,8 @@ indeksy, natomiast wartościami elementy listy.*/
 natomiast wartością typ Person(imię, nazwisko) i zwróci mapę, której kluczami
 jest obiekt String reprezentujący nazwisko, natomiast wartością liczba mówiąca
 ile razy osoba o danym nazwisku występuje w mapie zadanej w parametrze.*/
+
+    //TO NIE WYCHODZI
     public static HashMap<String, Integer> countTheSameLastNames(HashMap<String, Person> mapOfPeselsAndPersons) {
         HashMap<String, Integer> mapOfSameLastNames = new HashMap<String, Integer>();
         String lastName = mapOfPeselsAndPersons.get(mapOfPeselsAndPersons).getLastName();
@@ -84,7 +86,6 @@ ile razy osoba o danym nazwisku występuje w mapie zadanej w parametrze.*/
         }
         for(Map.Entry<String,Person> entry : mapOfPeselsAndPersons.entrySet()){
             System.out.println("key: " + entry.getKey() + " wartosc: " + entry.getValue());
-            //if()
         }
         return mapOfSameLastNames;
     }
