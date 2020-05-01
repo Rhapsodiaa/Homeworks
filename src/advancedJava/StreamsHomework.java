@@ -15,11 +15,11 @@ public class StreamsHomework {
         Person[] persons = {
                 new Person("Jola",52),
                 new Person("Franek",17),
+                new Person("Zosia",21),
                 new Person("Zosia",21)
         };
 
         List<Person> personList = Arrays.asList(persons);
-
         System.out.println(getAdultPeopleNames(personList));
 
     }
@@ -45,7 +45,9 @@ public class StreamsHomework {
 
         persons.stream()
                 .filter(p -> p.getAge() > 18)
-                .forEach(p-> p.getName());
+                .map(p->p.getName())
+                .distinct()
+                .collect(Collectors.toList());
 
         return names;
     }

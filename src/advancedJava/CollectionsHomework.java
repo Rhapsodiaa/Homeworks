@@ -1,6 +1,7 @@
 package advancedJava;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CollectionsHomework {
 
@@ -14,6 +15,7 @@ public class CollectionsHomework {
         System.out.println(evenIndexes(integers));
 
         List<Integer> integers2 = List.of(5, 5, 2, 2, 2, 2);
+        System.out.print("TERAZ TO ");
         System.out.println(withoutDuplicates(integers2));
 
         List<String> listOfStrings = List.of("ala", "ma", "kota");
@@ -41,8 +43,15 @@ elementy o parzystych indeksach.*/
 
     /*Napisz metodę, która przyjmie Listę (np. intów) i zwróci listę, która nie zawiera
 duplikatów.*/
+    /*withoutDuplicates - jest super, inne rozwiązanie mogłoby wrzucić całą listę z parametru do zbioru,
+     a potem zamienić zbiór z powrotem na listę*/
     public static List<Integer> withoutDuplicates(List<Integer> arrayList) {
-        List<Integer> newListWithoutDuplicates = new ArrayList<Integer>();
+
+        return arrayList.stream()
+                .distinct()
+                .collect(Collectors.toList());
+
+/*        List<Integer> newListWithoutDuplicates = new ArrayList<Integer>();
 
         for (int i = 0; i < arrayList.size() - 1; i++) {
             Integer current = arrayList.get(i);
@@ -51,7 +60,7 @@ duplikatów.*/
             }
         }
 
-        return newListWithoutDuplicates;
+        return newListWithoutDuplicates;*/
     }
 
     /*Napisz metodą, która przyjmie Listę stringów i zwróci mapę, której kluczami są

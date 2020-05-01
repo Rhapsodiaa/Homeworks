@@ -21,7 +21,23 @@ Wyjątki powinny być "wyłapywane" w metodzie main za pomocą bloku try-catch.*
         try{
             checkPassword(userPassword);
         }catch (IllegalArgumentException e){
-            System.out.println("Haslo musi byc dluzsze niz 8 znakow, posiadać przynajmniej jeden znak specjalny oraz przynajmniej jedną wielką literę");
+            System.out.println("Haslo musi posiadać przynajmniej jedną wielką literę!");
+        }catch (IncorrectNumberOfSigns e){
+            System.out.println("Haslo musi byc dluzsze niz 8 znakow!");
+        }catch(IncorrectNumberOfSpecialSigns e){
+            System.out.println("Haslo musi posiadać przynajmniej jeden znak specjalny!");
+        }
+    }
+
+    public static class IncorrectNumberOfSigns extends Exception{
+        public IncorrectNumberOfSigns(String errorMessage){
+            super(errorMessage);
+        }
+    }
+
+    public static class IncorrectNumberOfSpecialSigns extends Exception{
+        public IncorrectNumberOfSpecialSigns(String errorMessage){
+            super(errorMessage);
         }
     }
 }
